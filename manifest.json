@@ -1,0 +1,19 @@
+{
+	"name": "Google-Calendar-Copy",
+	"version": "1.0",
+	"permissions": [
+		"activeTab",
+		"https://www.google.com/calendar/*",
+		"https://google.com/calendar/*"
+	],
+  "content_scripts": [
+	{
+	  "matches": ["https://www.google.com/calendar/*"],
+	  "js": ["content.js"]
+	}
+  ],
+	"browser_action": {
+		"default_title": "Make this page red"
+	},
+	"manifest_version": 2
+}
