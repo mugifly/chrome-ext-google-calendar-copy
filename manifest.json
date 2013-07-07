@@ -3,6 +3,7 @@
 	"name": "Google-Calendar-Copy",
 	"version": "1.0.0",
 	"description": "Chrome extension for quickly copy an item on Google calendar.",
+	"homepage_url": "https://github.com/mugifly/chrome-ext-google-calendar-copy",
 	"icons": {
 		"16": "icon_16.png",
 		"128": "icon_128.png"
