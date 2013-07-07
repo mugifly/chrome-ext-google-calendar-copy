@@ -1,19 +1,23 @@
 {
+	"manifest_version": 2,
 	"name": "Google-Calendar-Copy",
-	"version": "1.0",
-	"permissions": [
-		"activeTab",
-		"https://www.google.com/calendar/*",
-		"https://google.com/calendar/*"
-	],
-  "content_scripts": [
-	{
-	  "matches": ["https://www.google.com/calendar/*"],
-	  "js": ["content.js"]
-	}
-  ],
-	"browser_action": {
-		"default_title": "Make this page red"
+	"description": "Chrome extension for quickly copy a item on Google calendar",
+	"icons": {
+		"16": "icon_16.png",
+		"128": "icon_128.png"
 	},
-	"manifest_version": 2
+	"version": "1.0",
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.google.com/calendar/*",
+				"https://google.com/calendar/*",
+				"http://www.google.com/calendar/*",
+				"http://google.com/calendar/*"
+			],
+			"js": [
+				"content.js"
+			]
+		}
+	]
 }
