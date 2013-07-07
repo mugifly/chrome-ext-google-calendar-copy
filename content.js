@@ -9,7 +9,7 @@
 			var link = document.createElement('a');
 			link.href = "javascript:void(0);";
 			link.appendChild( document.createTextNode("Copy") );
-			link.onclick = function(){
+			link.onclick = function(){/* Event - OnClick a link */
 				/* .eb-footer > * */
 				var parent_childs = link.parentNode.parentNode.childNodes;
 				for(var i = 0, m = parent_childs.length; i < m; i++){
@@ -19,7 +19,12 @@
 							if(childs[i].id.match(/.*details/)){
 								/* Open event detail */
 								childs[i].click();
-								window.setTimeout(copyItemOnEventDetail, 500);
+								var timer_ = window.setInterval(function(){
+									if(isLoadedEventDetail){
+										window.clearInterval(timer_);
+										window.setTimeout(copyItemOnEventDetail, 500);
+									}
+								}, 200);
 							}
 						}
 						break;
@@ -30,22 +35,12 @@
 		}
 	};
 
-	var saveItemOnEventDetail = function(){
-		console.log("saveItemOnEventDetail");
-		var objs = document.getElementsByClassName('action-btn-wrapper');
-		for(var i = 0, m = objs.length; i < m; i++){
-			var button = objs[i];
-			if(typeof button != 'undefined' && button.id != null && button.id.match(/\:.+\.save_top/)){
-				/* #**.save_top > div */
-				button = button.childNodes[0];
-				/* Click save button */
-				console.log("Click save button");
-				var evt = document.createEvent("MouseEvents");
-				evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-				button.dispatchEvent(evt);
-				break;
-			}
+	var isLoadedEventDetail = function(){
+		var load_ind = document.getElementsById('lo-c');
+		if(load_ind != null  && load_ind.style.display == "none"){
+			return true;
 		}
+		return false;
 	};
 
 	var copyItemOnEventDetail = function(){
@@ -68,6 +63,24 @@
 					dropdown.dispatchEvent(evt);
 					break;
 				}
+			}
+		}
+	};
+
+	var saveItemOnEventDetail = function(){
+		console.log("saveItemOnEventDetail");
+		var objs = document.getElementsByClassName('action-btn-wrapper');
+		for(var i = 0, m = objs.length; i < m; i++){
+			var button = objs[i];
+			if(typeof button != 'undefined' && button.id != null && button.id.match(/\:.+\.save_top/)){
+				/* #**.save_top > div */
+				button = button.childNodes[0];
+				/* Click save button */
+				console.log("Click save button");
+				var evt = document.createEvent("MouseEvents");
+				evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+				button.dispatchEvent(evt);
+				break;
 			}
 		}
 	};
