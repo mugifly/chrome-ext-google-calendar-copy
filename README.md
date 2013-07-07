@@ -1,9 +1,9 @@
 chrome-ext-google-calendar-copy
 ====
 
-Chrome extension for quickly copy a item on Google calendar.
+Chrome extension for quickly copy an item on Google calendar.
 
-Add a item 'copy' link to popup on Google calendar.
+Add a schedule item 'copy' link to popup on Google calendar.
 
 ## Installing from GitHub
 
