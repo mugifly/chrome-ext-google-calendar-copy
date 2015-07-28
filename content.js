@@ -54,7 +54,7 @@
 			}
 			for(var i = 0, m = dropdown.length; i < m; i++){
 				var item = dropdown[i];
-				if(item.value.match(/\:.+\.kc/)){
+				if(item.className.match(/ep-dpl-it/)){
 					/* Select "copy a item" from dropdown */
 					dropdown.value = item.value;
 					window.setTimeout(saveItemOnEventDetail, 500);
